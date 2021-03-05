@@ -1,36 +1,32 @@
 <template>
-  <nav class="Gallerie">
+  <div class="GallerieVideo">
     <ul>
-      <li v-if="item in items">{{items.titre}}</li>
+      <li>{{titre}}</li>
       <li>{{img}}</li>
       <li>{{site}}</li>
       <li>{{descritpion}}</li>   
     </ul>
-  </nav>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Gallerie',
-  props: {
-    titre: String,
-    img: String,
-    site: String,
-    descritpion: String,
-  },
-  items: [
-    {titre: 'il était un fois dans l\'est', media: './media/video/ouatitw.mp4' , descritpion: ''},
-    {titre: 'il était un fois dans l\'est'},
+  name: 'GallerieVideo',
+  data: {
 
-  ]
+      titre: 'yo mama',
+      img: 'yomama.png',
+      site: 'yomama.com',
+      description: 'yo mama yo mama yo mama yo mama yo mama yo mama'
 
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.Gallerie{
+.GallerieVideo{
   position: absolute;
   align-self: center;
   top: 20vh;
