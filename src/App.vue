@@ -4,8 +4,17 @@
       <img id="logo" alt="ma grosse face" src="./assets/moi.png">
       <HelloWorld/> 
      </div>
-      <Nav />  
+      <div class="nav">
+      <Nav/>
+      </div>  
+    <div class="gallerie-cadre">
     <GallerieImage />
+    <!-- <Bonjour /> -->
+    </div>
+    <div class="en-construction">
+      <img src="./assets/UnderConstruction.gif" alt="en construction">
+      <h1>"Bientôt disponible"</h1>
+    </div> 
   </div>
 </template>
 
@@ -15,15 +24,17 @@ import HelloWorld from './components/HelloWorld.vue'
 import Nav from './components/Nav.vue'
 //import GallerieVideo from './components/GallerieVideo.vue'
 import GallerieImage from './components/GallerieImage.vue'
+//import Bonjour from './components/Bonjour.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
     Nav,
-    GallerieImage
+    GallerieImage,
+    //Bonjour
     
-  }
+  },
 }
 </script>
 
@@ -31,7 +42,8 @@ export default {
 body{
   display: flex;
   background: black;
-  background-image: url("../public/background.png") ;
+  background-image: url("../public/background.png");
+  background-repeat: repeat;
   background-size:  100%;
   height: 100%;
   width: 100%;
@@ -52,6 +64,7 @@ body{
   display: flex;
   flex-flow: row;
   flex-flow: wrap;
+  justify-content: center;
   width: 100vw;
   margin: 0;
 }
@@ -62,6 +75,56 @@ body{
   height: auto;
   justify-self: flex-start;
   padding-top: 10vh;
+}
+.gallerie-cadre ::-webkit-scrollbar {
+  display: none;
+}
+.gallerie-cadre {
+  background: black;
+  display: flex;
+  align-self: flex-end;
+  margin-top: 2vh;
+  color: rgba(255, 255, 255, 0.541);
+  height:75vh;
+  scrollbar-width: none;
+  justify-content: center;
+  width: 42vw;
+  border-radius: 5px;
+  border: rgb(20, 20, 20) solid 1px;
+  box-shadow: inset 1px -2px 1px 0px rgba(255, 254, 254, 0.5)
+    
+}
+.en-construction{
+
+  display: none;
+}
+
+@media (max-width: 900px) {
+
+#app{
+
+  height: 100%;
+}
+
+.titre{
+  display: none;
+}
+.gallerie-cadre{
+  display: none;
+}
+.nav{
+   display: none;
+}
+.en-construction{
+display: flex;
+flex-direction: column;
+justify-content: center;
+color:white
+}
+.en-construction:hover::after {
+
+  content: "lol";
+}
 }
 
 </style>

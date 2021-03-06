@@ -1,5 +1,5 @@
 <template>
-    <div class="image-template">
+    <div class="image-template" v-if="visible">
         <ul>
             <li v-for="image in image" v-bind:projet="image" :key="image.titre">
                 <h3>{{image.titre}}</h3>
@@ -14,6 +14,7 @@ export default {
     name:'projetImage',
     data() {
         return{
+            visible :true,
             image: [
                 {   
                     titre: "Anachronisme - Photoshop",
@@ -52,22 +53,9 @@ export default {
 .image-template::-webkit-scrollbar {
   display: none;
 }
+.image-template{
 
-.image-template {
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-self: flex-end;
-    margin-top: 2vh;
-    color: rgba(255, 255, 255, 0.541);
     overflow: scroll;
-    height:85vh;
-    scrollbar-width: none ;
-    width: 42vw;
-    border-radius: 5px;
-    border: rgb(20, 20, 20) solid 1px;
-    box-shadow: inset 1px -2px 1px 0px rgba(255, 254, 254, 0.5)
-    
 }
 
 .image-template ul {

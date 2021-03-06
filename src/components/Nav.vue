@@ -1,11 +1,10 @@
 <template>
   <nav class="Nav">
     <ul>
-      <li>BONJOUR</li>
-      <li>VIDÉOS</li>
-      <li>IMAGES</li>
-      <li>JEUX</li>
-      <li>WEB</li>
+      <li v-for="nomSection in nav"  :key="nomSection.nom" @click="choixSection" > 
+        <!-- v-bind:navSection="nom" -->
+       {{nomSection.nom}}
+      </li>
     </ul>
   </nav>
 </template>
@@ -13,13 +12,33 @@
 <script>
 export default {
   name: 'Nav',
-  props: {
-    bonjour: String,
-    images: String,
-    web: String,
-    videos: String,
-    jeux: String
-  }
+  data(){
+        return {
+            nav:[
+            { nom: "BONJOUR",
+             display: true,
+            },
+            { nom: "VIDÉOS",
+             display: false,
+            },
+            { nom: "IMAGES",
+             display: false,
+            },
+            { nom: "JEUX",
+             display: false,
+            },
+            { nom: "WEB",
+             display: false,
+            }
+          ]
+        }
+    },
+  methods: {
+    choixSection: function(){
+      this.display = !this.display;
+      console.log(this.display);
+    }
+  },
 }
 </script>
 
@@ -30,8 +49,10 @@ export default {
   
   align-self: center;
   height: 100%;
-  width: 10wh;
+  width: 20vw;
   margin-right: 12wv;
+  margin-top: 4vh;
+
 }
 
 ul{
@@ -56,10 +77,12 @@ li:hover{
 
   color: white;
   border-style: 1px sold red;
+  cursor: pointer;
 
 }
 li:hover::before{
   content: ">";
+  
 }
 
 </style>
