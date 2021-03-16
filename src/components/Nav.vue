@@ -1,8 +1,7 @@
 <template>
   <nav class="Nav">
     <ul>
-      <li v-for="nomSection in nav"  :key="nomSection.nom" @click="choixSection" > 
-        <!-- v-bind:navSection="nom" -->
+      <li v-for="nomSection in nav"  :key="nomSection.nom" @click="isShowing = !true" > 
        {{nomSection.nom}}
       </li>
     </ul>
@@ -12,32 +11,36 @@
 <script>
 export default {
   name: 'Nav',
+  props:{
+    isShowing: Boolean 
+  },
   data(){
         return {
-            nav:[
+          
+          nav:[
             { nom: "BONJOUR",
-             display: true,
+             isShowing: true,
             },
             { nom: "VIDÉOS",
-             display: false,
+             isShowing: false,
             },
             { nom: "IMAGES",
-             display: false,
+             isShowing: false,
             },
             { nom: "JEUX",
-             display: false,
+             isShowing: false,
             },
             { nom: "WEB",
-             display: false,
+             isShowing: false,
             }
-          ]
+          ] 
         }
     },
   methods: {
-    choixSection: function(){
-      this.display = !this.display;
-      console.log(this.display);
-    }
+    // toggleComponent: function(){
+    //   this.changeComponent = !this.changeComponent;
+    //   console.log(this.changeComponent);
+    // }
   },
 }
 </script>
@@ -57,21 +60,22 @@ export default {
 
 ul{
   display: flex;
-  flex-flow: column;
+  flex-flow: column nowrap;
   list-style: none;
   justify-content: flex-start;
-  width: 15vw;
+  width: 16vw;
   height: auto;
   align-self: center;
+  margin-right: 10vw;
 }
 li{
   color: darkgrey;
   font-family: 'VT323', monospace;
-  font-size: 4em;
+  font-size: 3rem;
   align-self: flex-end;
-  margin: 3%;
-  text-shadow: 1px 1px 5px rgba(255, 253, 253, 0), 1px 2px 0 #9c9c9c;
   
+  text-shadow: 1px 1px 5px rgba(255, 253, 253, 0), 1px 2px 0 #9c9c9c;
+    
 }
 li:hover{
 
@@ -82,7 +86,6 @@ li:hover{
 }
 li:hover::before{
   content: ">";
-  
 }
 
 </style>

@@ -7,10 +7,11 @@
       <div class="nav">
       <Nav/>
       </div>  
-    <div class="gallerie-cadre">
-    <GallerieImage />
-    <!-- <Bonjour /> -->
-    </div>
+     <transition-group class="gallerie-cadre" name="component-fade" mode="out-in">
+    <GallerieImage v-show="isShowing" key="IMAGES" />
+    <Bonjour v-show="isShowing" key="BONJOUR"/>
+    </transition-group>
+    <!--FsLightbox /-->
     <div class="en-construction">
       <img src="./assets/UnderConstruction.gif" alt="en construction">
       <h1>"Bientôt disponible"</h1>
@@ -24,17 +25,37 @@ import HelloWorld from './components/HelloWorld.vue'
 import Nav from './components/Nav.vue'
 //import GallerieVideo from './components/GallerieVideo.vue'
 import GallerieImage from './components/GallerieImage.vue'
-//import Bonjour from './components/Bonjour.vue'
-
+import Bonjour from './components/Bonjour.vue'
+//import FsLightbox from './components/FsLightbox.vue'
 export default {
   name: 'App',
+  props: {
+  },
   components: {
     HelloWorld,
     Nav,
     GallerieImage,
-    //Bonjour
-    
+    Bonjour,
+    //FsLightbox
+    // 'v-a': {
+    //   template: '<GallerieImage />'
+    // },
+    // 'v-b': {
+    //   template: '<Bonjour />'
+    // }
   },
+ data(){
+      return {
+     isShowing:false,
+    }
+ },
+ methods: {
+  //  changeComponent: function(){
+  //    if(nomSection.nom == this.key)
+  //     this.changeComponent = !this.changeComponent;
+  //     console.log(this.changeComponent);
+  // }
+}
 }
 </script>
 
