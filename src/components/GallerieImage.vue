@@ -1,5 +1,5 @@
 <template>
-    <div class="image-template" v-if="visible">
+    <div class="image-template">
         <ul>
             <li v-for="image in image" v-bind:projet="image" :key="image.titre">
                 <h3>{{image.titre}}</h3>
@@ -14,7 +14,6 @@ export default {
     name:'projetImage',
     data() {
         return{
-            visible :true,
             image: [
                 {   
                     titre: "Anachronisme - Photoshop",

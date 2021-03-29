@@ -1,46 +1,22 @@
 <template>
   <nav class="Nav">
     <ul>
-      <li v-for="nomSection in nav"  :key="nomSection.nom" @click="isShowing = !true" > 
-       {{nomSection.nom}}
+      <li v-for="page in this.$router.options.routes" v-bind:key="page">
+        <router-link :to="page.path">{{ page.nom }}</router-link>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
+
 export default {
-  name: 'Nav',
+  name: 'Navigation',
   props:{
-    isShowing: Boolean 
   },
-  data(){
-        return {
-          
-          nav:[
-            { nom: "BONJOUR",
-             isShowing: true,
-            },
-            { nom: "VIDÉOS",
-             isShowing: false,
-            },
-            { nom: "IMAGES",
-             isShowing: false,
-            },
-            { nom: "JEUX",
-             isShowing: false,
-            },
-            { nom: "WEB",
-             isShowing: false,
-            }
-          ] 
-        }
-    },
+ 
   methods: {
-    // toggleComponent: function(){
-    //   this.changeComponent = !this.changeComponent;
-    //   console.log(this.changeComponent);
-    // }
+   
   },
 }
 </script>
@@ -86,6 +62,14 @@ li:hover{
 }
 li:hover::before{
   content: ">";
+}
+a{
+
+  text-decoration: none;
+  color: #E9E9E9;
+}
+a:active{
+  color: red;
 }
 
 </style>

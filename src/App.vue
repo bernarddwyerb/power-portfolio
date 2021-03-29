@@ -7,10 +7,9 @@
       <div class="nav">
       <Nav/>
       </div>  
-     <transition-group class="gallerie-cadre" name="component-fade" mode="out-in">
-    <GallerieImage v-show="isShowing" key="IMAGES" />
-    <Bonjour v-show="isShowing" key="BONJOUR"/>
-    </transition-group>
+     <div class="gallerie-cadre" >
+       <router-view></router-view>
+     </div>
     <!--FsLightbox /-->
     <div class="en-construction">
       <img src="./assets/UnderConstruction.gif" alt="en construction">
@@ -20,13 +19,14 @@
 </template>
 
 <script>
-
+import Vue from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import Nav from './components/Nav.vue'
-//import GallerieVideo from './components/GallerieVideo.vue'
-import GallerieImage from './components/GallerieImage.vue'
-import Bonjour from './components/Bonjour.vue'
-//import FsLightbox from './components/FsLightbox.vue'
+import VueRouter from 'vue-router'
+import Embed from 'v-video-embed'
+Vue.use(VueRouter)
+Vue.use(Embed);
+
 export default {
   name: 'App',
   props: {
@@ -34,8 +34,8 @@ export default {
   components: {
     HelloWorld,
     Nav,
-    GallerieImage,
-    Bonjour,
+    // GallerieImage,
+    // Bonjour,
     //FsLightbox
     // 'v-a': {
     //   template: '<GallerieImage />'
@@ -46,15 +46,10 @@ export default {
   },
  data(){
       return {
-     isShowing:false,
     }
  },
  methods: {
-  //  changeComponent: function(){
-  //    if(nomSection.nom == this.key)
-  //     this.changeComponent = !this.changeComponent;
-  //     console.log(this.changeComponent);
-  // }
+
 }
 }
 </script>
@@ -65,7 +60,6 @@ body{
   background: black;
   background-image: url("../public/background.png");
   background-repeat: repeat;
-  background-size:  100%;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -95,25 +89,27 @@ body{
   width: 30vw;
   height: auto;
   justify-self: flex-start;
-  padding-top: 10vh;
+  padding-top: 0vh;
 }
-.gallerie-cadre ::-webkit-scrollbar {
+
+.gallerie-cadre::-webkit-scrollbar {
   display: none;
 }
+
 .gallerie-cadre {
   background: black;
   display: flex;
-  align-self: flex-end;
+  align-self: flex-start;
   margin-top: 2vh;
   color: rgba(255, 255, 255, 0.541);
-  height:75vh;
-  scrollbar-width: none;
+  height:90vh;
+  scrollbar-width: 0;
   justify-content: center;
   width: 42vw;
   border-radius: 5px;
-  border: rgb(20, 20, 20) solid 1px;
-  box-shadow: inset 1px -2px 1px 0px rgba(255, 254, 254, 0.5)
-    
+  border: rgb(255, 255, 255) solid 1px;
+  box-shadow: inset 1px -2px 1px 0px rgba(255, 254, 254, 0.5);
+  overflow: scroll;  
 }
 .en-construction{
 

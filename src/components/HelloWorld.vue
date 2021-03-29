@@ -30,14 +30,14 @@ export default {
 
   font-family: 'VT323', monospace;
   color: rgb(233, 233, 233);
-  font-size: 5vw;
+  font-size: 12vh;
   text-shadow: 2px 2px 0 #0000, 4px 4px 0 #9c9c9c;
   margin:0;
 }
 .db {
   font-family: 'VT323', monospace;
   color: rgb(233, 233, 233);
-  font-size: 5vw;
+  font-size: 12vh;
   text-shadow: 2px 2px 0 #0000, 4px 4px 0 #9c9c9c;
   margin: 0;
 }
